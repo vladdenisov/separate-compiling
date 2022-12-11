@@ -16,8 +16,8 @@ AR := $(CPREFIX)ar
 
 all: clean build
 
-build: main.o libpartition.a libnth.a
-	$(CC) $(CFLAGS) main.o -L. -lnth -lpartition -o main
+build: main.o libnth.a
+	$(CC) $(CFLAGS) main.o -L. -lnth -o main
 
 main.o:
 	$(CC) $(CFLAGS) -c main.c
@@ -25,13 +25,10 @@ main.o:
 nth.o:
 	$(CC) $(CFLAGS) -c nth.c
 
-libnth.a: nth.o
-	$(AR) rcs $@ $^
-
 partition.o:
 	$(CC) $(CFLAGS) -c partition.c
 
-libpartition.a: partition.o
+libnth.a: partition.o nth.o 
 	$(AR) rcs $@ $^
 
 clean:
