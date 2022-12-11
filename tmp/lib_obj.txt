@@ -1,0 +1,1 @@
+> riscv64-unknown-elf-objdump -d -t -S libnth.a

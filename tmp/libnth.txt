@@ -1,0 +1,56 @@
+In archive libnth.a:
+
+nth.o:     file format elf32-littleriscv
+
+SYMBOL TABLE:
+00000000 l    df *ABS*	00000000 nth.c
+00000000 l    d  .text	00000000 .text
+00000000 l    d  .data	00000000 .data
+00000000 l    d  .bss	00000000 .bss
+00000000 l    d  .comment	00000000 .comment
+00000000 l    d  .riscv.attributes	00000000 .riscv.attributes
+00000000 g     F .text	0000004e nth
+00000000         *UND*	00000000 partition
+
+
+
+Disassembly of section .text:
+
+00000000 <nth>:
+   0:	1101                	addi	sp,sp,-32
+   2:	ce06                	sw	ra,28(sp)
+   4:	cc22                	sw	s0,24(sp)
+   6:	ca26                	sw	s1,20(sp)
+   8:	c84a                	sw	s2,16(sp)
+   a:	c64e                	sw	s3,12(sp)
+   c:	892a                	mv	s2,a0
+   e:	fff60413          	addi	s0,a2,-1
+  12:	fff58493          	addi	s1,a1,-1
+  16:	4981                	li	s3,0
+  18:	a011                	j	1c <.L2>
+
+0000001a <.L5>:
+  1a:	84aa                	mv	s1,a0
+
+0000001c <.L2>:
+  1c:	8626                	mv	a2,s1
+  1e:	85ce                	mv	a1,s3
+  20:	854a                	mv	a0,s2
+  22:	00000097          	auipc	ra,0x0
+  26:	000080e7          	jalr	ra # 22 <.L2+0x6>
+  2a:	00850763          	beq	a0,s0,38 <.L7>
+  2e:	fea466e3          	bltu	s0,a0,1a <.L5>
+  32:	00150993          	addi	s3,a0,1
+  36:	b7dd                	j	1c <.L2>
+
+00000038 <.L7>:
+  38:	040a                	slli	s0,s0,0x2
+  3a:	9922                	add	s2,s2,s0
+  3c:	00092503          	lw	a0,0(s2)
+  40:	40f2                	lw	ra,28(sp)
+  42:	4462                	lw	s0,24(sp)
+  44:	44d2                	lw	s1,20(sp)
+  46:	4942                	lw	s2,16(sp)
+  48:	49b2                	lw	s3,12(sp)
+  4a:	6105                	addi	sp,sp,32
+  4c:	8082                	ret

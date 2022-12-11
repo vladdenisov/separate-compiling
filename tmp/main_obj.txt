@@ -1,0 +1,66 @@
+
+main.o:     file format elf32-littleriscv
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000074  00000000  00000000  00000034  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  1 .data         00000000  00000000  00000000  000000a8  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  000000a8  2**0
+                  ALLOC
+  3 .rodata.str1.4 00000004  00000000  00000000  000000a8  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  4 .rodata       00000018  00000000  00000000  000000ac  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  5 .comment      00000022  00000000  00000000  000000c4  2**0
+                  CONTENTS, READONLY
+  6 .riscv.attributes 0000001c  00000000  00000000  000000e6  2**0
+                  CONTENTS, READONLY
+SYMBOL TABLE:
+00000000 l    df *ABS*	00000000 main.c
+00000000 l    d  .text	00000000 .text
+00000000 l    d  .data	00000000 .data
+00000000 l    d  .bss	00000000 .bss
+00000000 l    d  .rodata.str1.4	00000000 .rodata.str1.4
+00000000 l    d  .rodata	00000000 .rodata
+00000000 l    d  .comment	00000000 .comment
+00000000 l    d  .riscv.attributes	00000000 .riscv.attributes
+00000000 g     F .text	00000074 main
+00000000         *UND*	00000000 nth
+00000000         *UND*	00000000 printf
+
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+   0:	fd010113          	addi	sp,sp,-48
+   4:	02112623          	sw	ra,44(sp)
+   8:	000007b7          	lui	a5,0x0
+   c:	00078793          	mv	a5,a5
+  10:	0007a503          	lw	a0,0(a5) # 0 <main>
+  14:	0047a583          	lw	a1,4(a5)
+  18:	0087a603          	lw	a2,8(a5)
+  1c:	00c7a683          	lw	a3,12(a5)
+  20:	0107a703          	lw	a4,16(a5)
+  24:	0147a783          	lw	a5,20(a5)
+  28:	00a12423          	sw	a0,8(sp)
+  2c:	00b12623          	sw	a1,12(sp)
+  30:	00c12823          	sw	a2,16(sp)
+  34:	00d12a23          	sw	a3,20(sp)
+  38:	00e12c23          	sw	a4,24(sp)
+  3c:	00f12e23          	sw	a5,28(sp)
+  40:	00400613          	li	a2,4
+  44:	00600593          	li	a1,6
+  48:	00810513          	addi	a0,sp,8
+  4c:	00000097          	auipc	ra,0x0
+  50:	000080e7          	jalr	ra # 4c <main+0x4c>
+  54:	00050593          	mv	a1,a0
+  58:	00000537          	lui	a0,0x0
+  5c:	00050513          	mv	a0,a0
+  60:	00000097          	auipc	ra,0x0
+  64:	000080e7          	jalr	ra # 60 <main+0x60>
+  68:	02c12083          	lw	ra,44(sp)
+  6c:	03010113          	addi	sp,sp,48
+  70:	00008067          	ret

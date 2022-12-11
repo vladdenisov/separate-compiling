@@ -1,0 +1,66 @@
+
+partition.o:     file format elf32-littleriscv
+
+SYMBOL TABLE:
+00000000 l    df *ABS*	00000000 partition.c
+00000000 l    d  .text	00000000 .text
+00000000 l    d  .data	00000000 .data
+00000000 l    d  .bss	00000000 .bss
+00000000 l    d  .comment	00000000 .comment
+00000000 l    d  .riscv.attributes	00000000 .riscv.attributes
+00000000 g     F .text	00000094 partition
+
+
+
+Disassembly of section .text:
+
+00000000 <partition>:
+   0:	00050313          	mv	t1,a0
+   4:	00060513          	mv	a0,a2
+   8:	00c587b3          	add	a5,a1,a2
+   c:	0017d793          	srli	a5,a5,0x1
+  10:	00279793          	slli	a5,a5,0x2
+  14:	00f307b3          	add	a5,t1,a5
+  18:	0007a603          	lw	a2,0(a5)
+  1c:	04a5cc63          	blt	a1,a0,74 <.L2>
+  20:	00008067          	ret
+
+00000024 <.L4>:
+  24:	00158593          	addi	a1,a1,1
+  28:	00078693          	mv	a3,a5
+  2c:	00478793          	addi	a5,a5,4
+  30:	ffc7a703          	lw	a4,-4(a5)
+  34:	fec748e3          	blt	a4,a2,24 <.L4>
+  38:	00068813          	mv	a6,a3
+
+0000003c <.L8>:
+  3c:	00251793          	slli	a5,a0,0x2
+  40:	00f308b3          	add	a7,t1,a5
+  44:	0008a683          	lw	a3,0(a7)
+  48:	02d65063          	bge	a2,a3,68 <.L5>
+  4c:	ffc78793          	addi	a5,a5,-4
+  50:	00f307b3          	add	a5,t1,a5
+
+00000054 <.L6>:
+  54:	fff50513          	addi	a0,a0,-1
+  58:	00078893          	mv	a7,a5
+  5c:	ffc78793          	addi	a5,a5,-4
+  60:	0047a683          	lw	a3,4(a5)
+  64:	fed648e3          	blt	a2,a3,54 <.L6>
+
+00000068 <.L5>:
+  68:	00d82023          	sw	a3,0(a6)
+  6c:	00e8a023          	sw	a4,0(a7)
+  70:	02a5d063          	bge	a1,a0,90 <.L1>
+
+00000074 <.L2>:
+  74:	00259793          	slli	a5,a1,0x2
+  78:	00f30833          	add	a6,t1,a5
+  7c:	00082703          	lw	a4,0(a6)
+  80:	00478793          	addi	a5,a5,4
+  84:	00f307b3          	add	a5,t1,a5
+  88:	f8c74ee3          	blt	a4,a2,24 <.L4>
+  8c:	fb1ff06f          	j	3c <.L8>
+
+00000090 <.L1>:
+  90:	00008067          	ret

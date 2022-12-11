@@ -1,0 +1,4 @@
+> riscv64-unknown-elf-gcc --save-temps -march=rv32i -mabi=ilp32 -O1 -E main.o nth.o partition.o -o main.out
+
+
+> riscv64-unknown-elf-objdump –j .text –d ./ main.out > ../tmp/a.ds

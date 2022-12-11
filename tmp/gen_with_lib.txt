@@ -1,0 +1,1 @@
+> riscv64-unknown-elf-gcc --save-temps -march=rv32i -mabi=ilp32 -O1 -E main.o -L. -lnth -lpartition -o main.out

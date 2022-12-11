@@ -1,0 +1,3 @@
+> riscv64-unknown-elf-gcc  -march=rv32i -mabi=ilp32 -O1 -c main.s -o main.o
+> riscv64-unknown-elf-gcc  -march=rv32i -mabi=ilp32 -O1 -c nth.s -o nth.o
+> riscv64-unknown-elf-gcc  -march=rv32i -mabi=ilp32 -O1 -c partition.i -o partition.o

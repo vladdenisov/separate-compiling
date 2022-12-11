@@ -1,0 +1,3 @@
+> riscv64-unknown-elf-objdump -d -t -h -S main.o > ../tmp/main_obj.txt   
+> riscv64-unknown-elf-objdump -d -t -S nth.o > ../tmp/nth_obj.txt   
+> riscv64-unknown-elf-objdump -d -t -S partition.o > ../tmp/partition_obj.txt  

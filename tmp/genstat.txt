@@ -1,0 +1,2 @@
+> ar -rcs libnth.a nth.o
+> ar -rcs libpartition.a partition.o
