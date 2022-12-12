@@ -19,13 +19,13 @@ all: clean build
 build: main.o libnth.a
 	$(CC) $(CFLAGS) main.o -L. -lnth -o main
 
-main.o:
+main.o: main.c
 	$(CC) $(CFLAGS) -c main.c
 
-nth.o:
+nth.o: nth.c
 	$(CC) $(CFLAGS) -c nth.c
 
-partition.o:
+partition.o: partition.c
 	$(CC) $(CFLAGS) -c partition.c
 
 libnth.a: partition.o nth.o 
